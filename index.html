@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aki Villa — About</title>
+<meta name="description" content="Aki Villa — Senior IT professional, team lead and hobbyist musician. About, principles, skills, studying focus and hobbies.">
+<style>
+  :root{
+    --bg:#0A0A0B; --surface:#141416; --border:#26262A;
+    --text:#EDEDEF; --text-dim:#9A9AA2; --mint:#7CE0C6; --accent:#E8B860;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--mint);}
+  .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
+  header.hero{padding:72px 0 40px;}
+  .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--mint); text-transform:uppercase;}
+  h1{font-size:38px; margin:12px 0 8px; letter-spacing:-0.02em;}
+  .meta{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--text-dim); font-family:'JetBrains Mono',monospace;}
+  .meta span::before{content:'· '; color:var(--mint);}
+  .meta span:first-child::before{content:'';}
+
+  .profile{display:grid; grid-template-columns:200px 1fr; gap:40px; align-items:center; margin:32px 0 8px;}
+  .profile img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; border:1px solid var(--border); display:block;}
+  @media (max-width:640px){ .profile{grid-template-columns:1fr; text-align:center;} .profile img{max-width:200px; margin:0 auto;} }
+
+  section{padding:40px 0; border-top:1px solid var(--border);}
+  section h2{font-size:24px; margin:0 0 16px;}
+  section p{color:var(--text); max-width:680px;}
+  ul.features{list-style:none; padding:0; margin:0; display:grid; gap:12px;}
+  ul.features li{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px;}
+  ul.features li::before{content:'▹ '; color:var(--mint);}
+
+  .roles{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px;}
+  .role-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px;}
+  .role-card h3{margin:0 0 6px; font-size:16px; color:var(--accent);}
+  .role-card p{font-size:14px; color:var(--text-dim); margin:0;}
+
+  .links{display:flex; gap:16px; flex-wrap:wrap;}
+  .links a{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 18px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:14px;}
+  .links a:hover{border-color:var(--mint);}
+
+  footer{padding:32px 0 64px; color:var(--text-dim); font-size:13px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">// About</div>
+    <h1>Hi, I'm Aki Villa.</h1>
+    <div class="meta">
+      <span>Klaukkala, Uusimaa, Finland</span>
+      <span>27 years in IT</span>
+      <span>Team lead &amp; hands-on engineer</span>
+    </div>
+    <div class="profile">
+      <img src="images/aki-portrait.jpg" alt="Portrait of Aki Villa">
+      <p>
+        Senior IT professional and team lead with 27 years of experience building
+        digital services, infrastructure and hands-on production work. I combine
+        technical architecture, automation and creative problem-solving to improve
+        delivery reliability, quality and development speed. Day to day I move
+        between four closely related roles — team lead / system manager, DevOps
+        engineer, multimedia engineer and security advisor — because in practice
+        the work overlaps: reliable systems, clear processes, good tooling and a
+        security-first mindset all feed each other.
+      </p>
+    </div>
+  </header>
+
+  <section id="roles">
+    <h2>Roles</h2>
+    <div class="roles">
+      <div class="role-card">
+        <h3>Team Lead / System Manager</h3>
+        <p>Leading and mentoring cross-functional teams, prioritization, decision-making and delivery under pressure.</p>
+      </div>
+      <div class="role-card">
+        <h3>DevOps Engineer</h3>
+        <p>CI/CD pipelines, repeatable deploy patterns, cloud/platform foundations (Azure, Microsoft 365, Google Workspace).</p>
+      </div>
+      <div class="role-card">
+        <h3>Multimedia Engineer</h3>
+        <p>Content production, technical implementation and publishing workflows — from idea to shipped, maintained product.</p>
+      </div>
+      <div class="role-card">
+        <h3>Security Advisor / Expert</h3>
+        <p>Practical, risk-aware guidance woven into everyday engineering rather than bolted on afterwards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <h2>Principles &amp; features</h2>
+    <ul class="features">
+      <li>Full-lifecycle ownership: code, configuration, CI/CD pipelines, release governance and L3 support.</li>
+      <li>Proven legacy modernization: monolith decomposition, dependency decoupling and transition planning without stalling delivery.</li>
+      <li>Pragmatic, evidence-based delivery leadership: dependency transparency and predictable execution.</li>
+      <li>20+ years leading and mentoring cross-functional engineering teams in English-first, multicultural environments.</li>
+      <li>Human-first leadership style: psychological safety, growth-oriented 1:1s, coaching from junior to senior levels.</li>
+      <li>AI-assisted development as part of daily work — GitHub Copilot, GitHub Actions and Cloudflare for efficient, modern CI/CD.</li>
+      <li>Comfortable bridging legacy and modern environments without letting modernization stall the day-to-day.</li>
+    </ul>
+  </section>
+
+  <section id="studying">
+    <h2>Studying</h2>
+    <p>
+      My current learning focus follows the roles above directly: deepening
+      Azure infrastructure knowledge, running Microsoft 365 and Google
+      Workspace environments end to end, and getting faster/cleaner CI/CD
+      releases using GitHub Copilot, GitHub Actions and Cloudflare. It's less
+      about collecting certificates and more about staying hands-on — testing
+      new tooling on real, working projects and folding what works back into
+      day-to-day practice.
+    </p>
+  </section>
+
+  <section id="hobbies">
+    <h2>Hobbies</h2>
+    <p>
+      Music has been my hobby for 40 years — keyboards, percussion, vocals —
+      fitted in between work and family. Studio time, iPad music apps,
+      standalone grooveboxes and samplers (MPC, SP). In my spare time I build
+      Loopy Pro templates and Koala Sampler SoundSets and share them for free
+      under the TheTemplateDude / TheTemplateDad project — a year-long,
+      self-directed project combining content creation, technical build and
+      publishing into one working whole.
+    </p>
+    <p>
+      <a href="https://thetemplatedad.com">→ Visit thetemplatedad.com — my artist profile</a>
+    </p>
+  </section>
+
+  <section id="links">
+    <h2>Links</h2>
+    <div class="links">
+      <a href="https://thetemplatedad.com">thetemplatedad.com</a>
+      <a href="https://thetemplatedude.com">thetemplatedude.com</a>
+      <a href="https://www.linkedin.com/in/aki-villa-7ab60629/">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; Aki Villa
+  </footer>
+
+</div>
+</body>
+</html>
