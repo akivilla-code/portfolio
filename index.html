@@ -238,6 +238,18 @@
         customer-visible downtime.
       </p>
     </div>
+    <div class="role-card">
+      <h3 data-i18n="work5_title">AI-orchestrated job-application toolkit (jobseeker)</h3>
+      <p data-i18n="work5_body">
+        Built a private system that turns role content and a job description
+        into tailored CV, cover letter, references and interview-prep PDFs.
+        Stack: multi-role Markdown sources, Python generator, local Flask UI,
+        themed PDF via headless Edge/Chrome, EN/FI and plain/standard voice.
+        I own architecture and guardrails; Cursor and coding agents handle
+        iteration. Next step: generalise it so others can reuse the same
+        pattern with their own content.
+      </p>
+    </div>
     <p style="color:var(--text-dim); margin-top:16px; max-width:680px;" data-i18n="work_confidentiality">
       Beyond the examples above, I have broad experience across several
       technically demanding and sensitive infrastructure projects. I respect
@@ -439,7 +451,6 @@
     <h2 data-i18n="links_title">Links</h2>
     <div class="links">
       <a href="https://thetemplatedad.com">thetemplatedad.com</a>
-      <a href="https://thetemplatedude.com">thetemplatedude.com</a>
       <a href="https://www.youtube.com/@TheTemplateDude">YouTube · @TheTemplateDude</a>
       <a href="https://www.linkedin.com/in/aki-villa-7ab60629/">LinkedIn</a>
     </div>
@@ -500,6 +511,8 @@ const I18N = {
     work3_body: "Implemented an authentication-model change for a messaging service running as an Azure resource. I built and configured a new integration that moved the application’s sign-in to a local ADFS service (Active Directory Federation Services). I owned the technical delivery and successfully verified the solution in a test environment. A concrete example of working in hybrid setups and connecting cloud resources to existing identity-management solutions.",
     work4_title: "Large-scale CI/CD architecture reorganisation and migration (Octopus Deploy)",
     work4_body: "Owned technical coordination and delivery for a major CI/CD architecture redesign that successfully moved an entire product family’s release pipelines into their own dedicated Octopus Deploy Space. The work required substantial changes to package management, release configuration and target-server (Tentacle) architecture. To speed delivery I built centralised automation scripts for Tentacle agent registration. I coordinated the cutover across multiple projects and delivery owners, and mentored other teams’ DevOps engineers on the new practices. Outcome: a fully independent, secure release environment for the products, with clearly better control and no customer-visible downtime.",
+    work5_title: "AI-orchestrated job-application toolkit (jobseeker)",
+    work5_body: "Built a private system that turns role content and a job description into tailored CV, cover letter, references and interview-prep PDFs. Stack: multi-role Markdown sources, Python generator, local Flask UI, themed PDF via headless Edge/Chrome, EN/FI and plain/standard voice. I own architecture and guardrails; Cursor and coding agents handle iteration. Next step: generalise it so others can reuse the same pattern with their own content.",
     work_confidentiality: "Beyond the examples above, I have broad experience across several technically demanding and sensitive infrastructure projects. I respect my previous employer’s information security, so I do not publish Visma- or customer-specific details publicly. In interviews I’m glad to discuss these cases at a referential level — focusing on my own technical choices, architectural thinking and problem-solving.",
     lab_title: "The Home Lab",
     lab_intro: "A continuously evolving lab of 10+ machines (10 PCs, 2 MacBooks and 5 iPads) is where I safely break and rebuild infrastructure before it ever touches a production account. I use it as a private sandbox for Terraform and Azure scenarios — provisioning, tearing down and re-running the same patterns until they are boringly reliable — and as the target for deployment pipelines that ship my own apps and published material across several stacks.",
@@ -600,6 +613,8 @@ const I18N = {
     work3_body: "Toteutin Azuressa resurssina ajettavaan viestipalvelusovellukseen autentikointimallin muutoksen. Rakensin ja konfiguroin sovellukseen uuden integraation, joka siirsi sen tunnistautumisen käyttämään paikallista ADFS-palvelua (Active Directory Federation Services). Hoidin teknisen toteutuksen ja todennin ratkaisun toimivuuden onnistuneesti testiympäristössä. Tämä projekti on konkreettinen esimerkki kyvystäni työskennellä hybridiympäristöissä ja yhdistää pilvipohjaisia resursseja olemassa oleviin identiteetinhallinnan ratkaisuihin.",
     work4_title: "Laajan CI/CD-arkkitehtuurin uudelleenjärjestely ja migraatio (Octopus Deploy)",
     work4_body: "Vastasin teknisestä koordinoinnista ja toteutuksesta mittavassa CI/CD-arkkitehtuurin uudistuksessa, jonka lopputulemana siirsimme kokonaisen tuoteperheen julkaisuputket onnistuneesti omaan, dedikoituun työtilaansa (Space) Octopus Deployssa. Hanke vaati merkittäviä muutoksia pakettien hallintaan, julkaisukonfiguraatioihin sekä kohdepalvelimien (Tentacle) arkkitehtuuriin. Työn tehostamiseksi kehitin keskitetyt automaatioskriptit Tentacle-agenttien rekisteröintiin. Koordinoin muutoksen läpiviennin usean eri projektin ja toimitusvastaavan kanssa, ja mentoroin samalla muiden tiimien DevOps-kehittäjiä uusien käytäntöjen omaksumisessa. Lopputuloksena saavutimme tuotteille oman, täysin itsenäisen ja turvallisen julkaisuympäristön, joka paransi hallittavuutta merkittävästi ilman asiakkaille näkyviä käyttökatkoja.",
+    work5_title: "Tekoälyorkestroitu työnhakutyökalu (jobseeker)",
+    work5_body: "Rakensin yksityisen järjestelmän, joka tuottaa roolisisällöstä ja työpaikkailmoituksesta räätälöidyt CV-, saate-, suositus- ja haastatteluprep-PDF:t. Pino: monirooli-Markdown-lähteet, Python-generaattori, paikallinen Flask-käyttöliittymä, teemoitetut PDF:t headless Edge/Chromella, EN/FI sekä selkokieli/standard-ääni. Omistan arkkitehtuurin ja reunaehdot; Cursor ja koodausagentit hoitavat iteraatiota. Seuraava askel: yleistää malli niin, että muut voivat käyttää samaa kaavaa omalla sisällöllään.",
     work_confidentiality: "Yllä olevien esimerkkien lisäksi minulla on laaja kokemus useista teknisesti vaativista ja sensitiivisistä infrahankkeista. Kunnioitan aiemman työnantajani tietoturvaa, minkä vuoksi en avaa Vismaan tai asiakkaisiin liittyviä yksityiskohtia julkisesti. Haastatteluissa keskustelen näistä caseista mielelläni viitteellisesti – keskittyen puhtaasti omiin teknisiin valintoihini, arkkitehtuuriajatteluuni ja ongelmanratkaisuun.",
     lab_title: "Kotilabra",
     lab_intro: "Jatkuvasti kehittyvä yli 10 koneen labra (10 PC:tä, 2 MacBookia ja 5 iPadia) on paikka, jossa rikon ja rakennan infrastruktuuria turvallisesti ennen kuin se koskee tuotantotiliä. Käytän sitä yksityisenä sandboxina Terraform- ja Azure-skenaarioille — provisionointi, purku ja samojen mallien uudelleenajo kunnes ne ovat tylsän luotettavia — sekä kohteena deployment-putkille, joilla julkaisen omia sovelluksiani ja materiaalia useilla teknologioilla.",
