@@ -45,6 +45,20 @@
   .links a{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 18px; text-decoration:none; font-family:'JetBrains Mono',monospace; font-size:14px;}
   .links a:hover{border-color:var(--mint);}
 
+  .lab-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;}
+  @media (max-width:640px){ .lab-grid{grid-template-columns:1fr;} }
+  .lab-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px;}
+  .lab-card h3{margin:0 0 8px; font-size:15px; color:var(--accent);}
+  .lab-card p,.lab-card ul{margin:0; font-size:14px; color:var(--text-dim);}
+  .lab-card ul{padding-left:18px;}
+  .lab-card li{margin:4px 0;}
+  .lab-diagram{
+    margin-top:20px; background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:20px 16px; overflow-x:auto;
+  }
+  .lab-diagram svg{display:block; width:100%; max-width:760px; height:auto; margin:0 auto;}
+  .lab-caption{margin:10px 0 0; font-size:12px; color:var(--text-dim); font-family:'JetBrains Mono',monospace; text-align:center;}
+
   footer{padding:32px 0 64px; color:var(--text-dim); font-size:13px;}
 </style>
 </head>
@@ -142,27 +156,118 @@
     </div>
   </section>
 
+  <section id="homelab">
+    <h2>The Home Lab</h2>
+    <p>
+      A continuously evolving lab of 10+ machines (10 PCs, 2 MacBooks and
+      5 iPads) is where I safely break and rebuild infrastructure before it
+      ever touches a production account. I use it as a private sandbox for
+      Terraform and Azure scenarios — provisioning, tearing down and
+      re-running the same patterns until they are boringly reliable — and
+      as the target for deployment pipelines that ship my own apps and
+      published material across several stacks.
+    </p>
+    <div class="lab-grid">
+      <div class="lab-card">
+        <h3>Break-and-test sandbox</h3>
+        <p>
+          Terraform-driven Azure experiments, identity and networking
+          trials, and infrastructure changes that are meant to fail fast
+          and recover cleanly — without risking customer environments.
+        </p>
+      </div>
+      <div class="lab-card">
+        <h3>Pipelines to real deliverables</h3>
+        <p>
+          CI/CD paths from the lab into my own applications and content
+          sites — GitHub Actions, Cloudflare and related tooling — so
+          every experiment has a concrete shipping target.
+        </p>
+      </div>
+      <div class="lab-card">
+        <h3>Hardware footprint</h3>
+        <ul>
+          <li>10 PCs for mixed Windows / Linux workloads</li>
+          <li>2 MacBooks for cross-platform checks</li>
+          <li>5 iPads for mobile and publishing workflows</li>
+        </ul>
+      </div>
+      <div class="lab-card">
+        <h3>Tech in active use</h3>
+        <ul>
+          <li>Terraform &amp; Azure (IaC scenarios)</li>
+          <li>GitHub Actions deployment pipelines</li>
+          <li>Cloudflare, Microsoft 365, Google Workspace</li>
+          <li>AI-assisted build &amp; review workflows</li>
+        </ul>
+      </div>
+    </div>
+    <div class="lab-diagram" aria-label="Home lab architecture diagram">
+      <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img">
+        <title>Home lab: machines to Terraform/Azure and pipelines to apps</title>
+        <rect x="20" y="40" width="160" height="140" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="100" y="78" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600">Home Lab</text>
+        <text x="100" y="104" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">10+ machines</text>
+        <text x="100" y="124" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">PCs · Mac · iPad</text>
+        <text x="100" y="152" text-anchor="middle" fill="#7CE0C6" font-family="JetBrains Mono,monospace" font-size="11">safe break / rebuild</text>
+
+        <path d="M180 110 H230" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="230" y="30" width="170" height="70" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="315" y="58" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Terraform</text>
+        <text x="315" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">Azure scenarios</text>
+
+        <rect x="230" y="120" width="170" height="70" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="315" y="148" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">CI / CD</text>
+        <text x="315" y="168" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">GitHub Actions</text>
+
+        <path d="M400 65 H450" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <path d="M400 155 H450" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="450" y="30" width="140" height="70" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="520" y="58" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Azure</text>
+        <text x="520" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">test tenants</text>
+
+        <rect x="450" y="120" width="140" height="70" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="520" y="148" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Ship targets</text>
+        <text x="520" y="168" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">apps · material</text>
+
+        <path d="M590 65 H640" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <path d="M590 155 H640" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="640" y="40" width="100" height="140" rx="10" fill="#141416" stroke="#26262A"/>
+        <text x="690" y="95" text-anchor="middle" fill="#7CE0C6" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Learn</text>
+        <text x="690" y="118" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">fold back</text>
+        <text x="690" y="138" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">into practice</text>
+
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#7CE0C6"/>
+          </marker>
+        </defs>
+      </svg>
+      <p class="lab-caption">Architecture sketch — lab → Terraform/Azure + pipelines → own apps &amp; material</p>
+    </div>
+  </section>
+
   <section id="studying">
     <h2>Studying</h2>
     <p>
       My current learning focus follows the roles above directly: deepening
       Azure infrastructure knowledge and expanding into AWS, Infrastructure
-      as Code with Terraform, containerized workloads with Docker and
-      Kubernetes, and modern service management with ITIL 4 — alongside
-      running Microsoft 365 and Google Workspace environments end to end and
-      getting faster/cleaner CI/CD releases with GitHub Actions and
-      Cloudflare. On the AI tooling side, I use GitHub Copilot Pro and Gemini
-      daily (plus other free-tier assistants), and I'm adding Claude to
-      build more robust workflows and dedicated agents for different roles.
-      It's less about collecting certificates and more about staying
-      hands-on — testing new tooling on real, working projects and folding
-      what works back into day-to-day practice. A home lab of 10 PCs, 2
-      MacBooks and 5 iPads means most of this can be tested hands-on across
-      platforms right away, rather than waiting for access to try something.
-      Next challenge I'm setting for myself: building small-scale apps to
-      solve my own everyday problems, likely using multiple AI agents in
-      different roles (architect, coder, reviewer) working together rather
-      than a single assistant doing everything.
+      as Code with Terraform, and modern service management with ITIL 4 —
+      alongside running Microsoft 365 and Google Workspace environments end
+      to end and getting faster/cleaner CI/CD releases with GitHub Actions
+      and Cloudflare. On the AI tooling side, I use GitHub Copilot Pro and
+      Gemini daily (plus other free-tier assistants), and I'm adding Claude
+      to build more robust workflows and dedicated agents for different
+      roles. It's less about collecting certificates and more about staying
+      hands-on — testing new tooling in the home lab on real, working
+      projects and folding what works back into day-to-day practice. Next
+      challenge I'm setting for myself: building small-scale apps to solve
+      my own everyday problems, likely using multiple AI agents in different
+      roles (architect, coder, reviewer) working together rather than a
+      single assistant doing everything.
     </p>
   </section>
 
