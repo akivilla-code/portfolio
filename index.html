@@ -18,7 +18,20 @@
   }
   a{color:var(--mint);}
   .wrap{max-width:880px; margin:0 auto; padding:0 24px;}
-  header.hero{padding:72px 0 40px;}
+  header.hero{padding:72px 0 40px; position:relative;}
+  .lang-switch{
+    position:absolute; top:24px; right:0;
+    display:flex; gap:4px; padding:4px;
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  }
+  .lang-switch button{
+    appearance:none; border:0; background:transparent; color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.06em;
+    padding:6px 10px; border-radius:7px; cursor:pointer;
+  }
+  .lang-switch button[aria-pressed="true"]{
+    background:var(--bg); color:var(--mint);
+  }
   .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--mint); text-transform:uppercase;}
   h1{font-size:38px; margin:12px 0 8px; letter-spacing:-0.02em;}
   .meta{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--text-dim); font-family:'JetBrains Mono',monospace;}
@@ -27,7 +40,11 @@
 
   .profile{display:grid; grid-template-columns:200px 1fr; gap:40px; align-items:center; margin:32px 0 8px;}
   .profile img{width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; border:1px solid var(--border); display:block;}
-  @media (max-width:640px){ .profile{grid-template-columns:1fr; text-align:center;} .profile img{max-width:200px; margin:0 auto;} }
+  @media (max-width:640px){
+    .profile{grid-template-columns:1fr; text-align:center;}
+    .profile img{max-width:200px; margin:0 auto;}
+    .lang-switch{position:static; margin:0 0 20px auto; width:fit-content;}
+  }
 
   section{padding:40px 0; border-top:1px solid var(--border);}
   section h2{font-size:24px; margin:0 0 16px;}
@@ -66,16 +83,20 @@
 <div class="wrap">
 
   <header class="hero">
-    <div class="eyebrow">// About</div>
-    <h1>Hi, I'm Aki Villa.</h1>
+    <nav class="lang-switch" aria-label="Language">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="fi" aria-pressed="false">FI</button>
+    </nav>
+    <div class="eyebrow" data-i18n="eyebrow">// About</div>
+    <h1 data-i18n="hero_title">Hi, I'm Aki Villa.</h1>
     <div class="meta">
-      <span>Klaukkala, Uusimaa, Finland</span>
-      <span>27 years in IT</span>
-      <span>Team lead · Senior DevOps &amp; AI workflows</span>
+      <span data-i18n="meta_location">Klaukkala, Uusimaa, Finland</span>
+      <span data-i18n="meta_years">27 years in IT</span>
+      <span data-i18n="meta_role">Team lead · Senior DevOps &amp; AI workflows</span>
     </div>
     <div class="profile">
-      <img src="images/aki-portrait.jpg" alt="Portrait of Aki Villa">
-      <p>
+      <img src="images/aki-portrait.jpg" alt="Portrait of Aki Villa" data-i18n-alt="portrait_alt">
+      <p data-i18n="hero_body">
         Senior IT professional and team lead with 27 years of experience building
         digital services, infrastructure and hands-on production work. I combine
         technical architecture, automation and creative problem-solving to improve
@@ -89,70 +110,70 @@
   </header>
 
   <section id="roles">
-    <h2>Roles</h2>
+    <h2 data-i18n="roles_title">Roles</h2>
     <div class="roles">
       <div class="role-card">
-        <h3>Team Lead / System Manager</h3>
-        <p>Leading and mentoring cross-functional teams, prioritization, decision-making and delivery under pressure.</p>
+        <h3 data-i18n="role1_title">Team Lead / System Manager</h3>
+        <p data-i18n="role1_body">Leading and mentoring cross-functional teams, prioritization, decision-making and delivery under pressure.</p>
       </div>
       <div class="role-card">
-        <h3>DevOps Engineer</h3>
-        <p>CI/CD pipelines, repeatable deploy patterns, cloud/platform foundations (Azure, Microsoft 365, Google Workspace).</p>
+        <h3 data-i18n="role2_title">DevOps Engineer</h3>
+        <p data-i18n="role2_body">CI/CD pipelines, repeatable deploy patterns, cloud/platform foundations (Azure, Microsoft 365, Google Workspace).</p>
       </div>
       <div class="role-card">
-        <h3>Multimedia Engineer</h3>
-        <p>Content production, technical implementation and publishing workflows — from idea to shipped, maintained product.</p>
+        <h3 data-i18n="role3_title">Multimedia Engineer</h3>
+        <p data-i18n="role3_body">Content production, technical implementation and publishing workflows — from idea to shipped, maintained product.</p>
       </div>
       <div class="role-card">
-        <h3>Senior Technical Consultant</h3>
-        <p>Bridging technical delivery and business stakeholders — flexible, cross-domain IT advisory across DevOps, platform, and delivery leadership.</p>
+        <h3 data-i18n="role4_title">Senior Technical Consultant</h3>
+        <p data-i18n="role4_body">Bridging technical delivery and business stakeholders — flexible, cross-domain IT advisory across DevOps, platform, and delivery leadership.</p>
       </div>
     </div>
   </section>
 
   <section id="principles">
-    <h2>Principles &amp; features</h2>
+    <h2 data-i18n="principles_title">Principles &amp; features</h2>
     <ul class="features">
-      <li>Full-lifecycle ownership: code, configuration, CI/CD pipelines, release governance and L3 support.</li>
-      <li><strong>Extensive migration &amp; tool-change experience</strong> — platforms, frameworks and workflows have shifted many times across 27 years; comfortable leading through change and adapting fast, not just maintaining the status quo.</li>
-      <li>Proven legacy modernization: monolith decomposition, dependency decoupling and transition planning without stalling delivery.</li>
-      <li>Pragmatic, evidence-based delivery leadership: dependency transparency and predictable execution.</li>
-      <li>20+ years leading and mentoring cross-functional engineering teams in English-first, multicultural environments.</li>
-      <li>Human-first leadership style: psychological safety, growth-oriented 1:1s, coaching from junior to senior levels.</li>
-      <li>AI-assisted development as part of daily work — GitHub Copilot, GitHub Actions and Cloudflare for efficient, modern CI/CD.</li>
-      <li>Comfortable bridging legacy and modern environments without letting modernization stall the day-to-day.</li>
-      <li>Genuine curiosity about technology in general — quick to explore new tools and stacks, and just as glad to learn from future colleagues as to lead them.</li>
+      <li data-i18n="p1">Full-lifecycle ownership: code, configuration, CI/CD pipelines, release governance and L3 support.</li>
+      <li data-i18n-html="p2"><strong>Extensive migration &amp; tool-change experience</strong> — platforms, frameworks and workflows have shifted many times across 27 years; comfortable leading through change and adapting fast, not just maintaining the status quo.</li>
+      <li data-i18n="p3">Proven legacy modernization: monolith decomposition, dependency decoupling and transition planning without stalling delivery.</li>
+      <li data-i18n="p4">Pragmatic, evidence-based delivery leadership: dependency transparency and predictable execution.</li>
+      <li data-i18n="p5">20+ years leading and mentoring cross-functional engineering teams in English-first, multicultural environments.</li>
+      <li data-i18n="p6">Human-first leadership style: psychological safety, growth-oriented 1:1s, coaching from junior to senior levels.</li>
+      <li data-i18n="p7">AI-assisted development as part of daily work — GitHub Copilot, GitHub Actions and Cloudflare for efficient, modern CI/CD.</li>
+      <li data-i18n="p8">Comfortable bridging legacy and modern environments without letting modernization stall the day-to-day.</li>
+      <li data-i18n="p9">Genuine curiosity about technology in general — quick to explore new tools and stacks, and just as glad to learn from future colleagues as to lead them.</li>
     </ul>
   </section>
 
   <section id="testimonials">
-    <h2>What colleagues say</h2>
-    <p>
+    <h2 data-i18n="testimonials_title">What colleagues say</h2>
+    <p data-i18n="visma_rec">
       My latest reference from Visma warmly recommends me for demanding
       hands-on expert, architecture, and release work, and also for
       team-lead and manager responsibilities. Fuller references from
       managers, directors, and technical peers are available on request
       as a separate document.
     </p>
-    <p style="color:var(--text-dim); margin-top:12px;">
+    <p style="color:var(--text-dim); margin-top:12px;" data-i18n="testimonials_note">
       From peer and team feedback gathered through a structured 1:1
       goal-setting and feedback tool used with the team.
     </p>
     <ul class="features">
-      <li>&ldquo;I particularly appreciate how you believed in my potential and provided me with opportunities when others might not.&rdquo;</li>
-      <li>&ldquo;Aki can build the team up with conflict management skills, set a positive atmosphere, and support co-workers in their strengths.&rdquo;</li>
-      <li>&ldquo;A humane approach as a manager, and excellent care for team members.&rdquo;</li>
-      <li>&ldquo;As a manager, Aki genuinely cares about his team.&rdquo;</li>
-      <li>&ldquo;I received great support and encouragement from Aki. He often remembered to ask how things were going and whether I needed anything.&rdquo;</li>
-      <li>&ldquo;You're a good manager — you've supported me well in everything.&rdquo;</li>
+      <li data-i18n="q1">&ldquo;I particularly appreciate how you believed in my potential and provided me with opportunities when others might not.&rdquo;</li>
+      <li data-i18n="q2">&ldquo;Aki can build the team up with conflict management skills, set a positive atmosphere, and support co-workers in their strengths.&rdquo;</li>
+      <li data-i18n="q3">&ldquo;A humane approach as a manager, and excellent care for team members.&rdquo;</li>
+      <li data-i18n="q4">&ldquo;As a manager, Aki genuinely cares about his team.&rdquo;</li>
+      <li data-i18n="q5">&ldquo;I received great support and encouragement from Aki. He often remembered to ask how things were going and whether I needed anything.&rdquo;</li>
+      <li data-i18n="q6">&ldquo;You're a good manager — you've supported me well in everything.&rdquo;</li>
     </ul>
   </section>
 
   <section id="work">
-    <h2>Selected work</h2>
+    <h2 data-i18n="work_title">Selected work</h2>
     <div class="role-card">
-      <h3>Invoicing platform: performance &amp; reliability turnaround</h3>
-      <p>
+      <h3 data-i18n="work1_title">Invoicing platform: performance &amp; reliability turnaround</h3>
+      <p data-i18n="work1_body">
         Led the cross-functional response to a high-traffic financial
         invoicing web application suffering degraded performance under load.
         Coordinated fixes across application code, network/firewall
@@ -167,8 +188,8 @@
   </section>
 
   <section id="homelab">
-    <h2>The Home Lab</h2>
-    <p>
+    <h2 data-i18n="lab_title">The Home Lab</h2>
+    <p data-i18n="lab_intro">
       A continuously evolving lab of 10+ machines (10 PCs, 2 MacBooks and
       5 iPads) is where I safely break and rebuild infrastructure before it
       ever touches a production account. I use it as a private sandbox for
@@ -179,53 +200,53 @@
     </p>
     <div class="lab-grid">
       <div class="lab-card">
-        <h3>Break-and-test sandbox</h3>
-        <p>
+        <h3 data-i18n="lab_c1_title">Break-and-test sandbox</h3>
+        <p data-i18n="lab_c1_body">
           Terraform-driven Azure experiments, identity and networking
           trials, and infrastructure changes that are meant to fail fast
           and recover cleanly — without risking customer environments.
         </p>
       </div>
       <div class="lab-card">
-        <h3>Pipelines to real deliverables</h3>
-        <p>
+        <h3 data-i18n="lab_c2_title">Pipelines to real deliverables</h3>
+        <p data-i18n="lab_c2_body">
           CI/CD paths from the lab into my own applications and content
           sites — GitHub Actions, Cloudflare and related tooling — so
           every experiment has a concrete shipping target.
         </p>
       </div>
       <div class="lab-card">
-        <h3>Hardware footprint</h3>
+        <h3 data-i18n="lab_c3_title">Hardware footprint</h3>
         <ul>
-          <li>10 PCs for mixed Windows / Linux workloads</li>
-          <li>2 MacBooks for cross-platform checks</li>
-          <li>5 iPads for mobile and publishing workflows</li>
+          <li data-i18n="lab_c3_1">10 PCs for mixed Windows / Linux workloads</li>
+          <li data-i18n="lab_c3_2">2 MacBooks for cross-platform checks</li>
+          <li data-i18n="lab_c3_3">5 iPads for mobile and publishing workflows</li>
         </ul>
       </div>
       <div class="lab-card">
-        <h3>Tech in active use</h3>
+        <h3 data-i18n="lab_c4_title">Tech in active use</h3>
         <ul>
-          <li>Terraform &amp; Azure (IaC scenarios)</li>
-          <li>GitHub Actions deployment pipelines</li>
-          <li>Cloudflare, Microsoft 365, Google Workspace</li>
-          <li>AI-assisted build &amp; review workflows</li>
+          <li data-i18n="lab_c4_1">Terraform &amp; Azure (IaC scenarios)</li>
+          <li data-i18n="lab_c4_2">GitHub Actions deployment pipelines</li>
+          <li data-i18n="lab_c4_3">Cloudflare, Microsoft 365, Google Workspace</li>
+          <li data-i18n="lab_c4_4">AI-assisted build &amp; review workflows</li>
         </ul>
       </div>
     </div>
-    <div class="lab-diagram" aria-label="Home lab architecture diagram">
+    <div class="lab-diagram" data-i18n-aria="lab_diagram_aria" aria-label="Home lab architecture diagram">
       <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg" role="img">
-        <title>Home lab: machines to Terraform/Azure and pipelines to apps</title>
+        <title data-i18n="lab_svg_title">Home lab: machines to Terraform/Azure and pipelines to apps</title>
         <rect x="20" y="40" width="160" height="140" rx="10" fill="#141416" stroke="#26262A"/>
-        <text x="100" y="78" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600">Home Lab</text>
-        <text x="100" y="104" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">10+ machines</text>
-        <text x="100" y="124" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">PCs · Mac · iPad</text>
-        <text x="100" y="152" text-anchor="middle" fill="#7CE0C6" font-family="JetBrains Mono,monospace" font-size="11">safe break / rebuild</text>
+        <text x="100" y="78" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="14" font-weight="600" data-i18n="lab_svg_1a">Home Lab</text>
+        <text x="100" y="104" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_1b">10+ machines</text>
+        <text x="100" y="124" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_1c">PCs · Mac · iPad</text>
+        <text x="100" y="152" text-anchor="middle" fill="#7CE0C6" font-family="JetBrains Mono,monospace" font-size="11" data-i18n="lab_svg_1d">safe break / rebuild</text>
 
         <path d="M180 110 H230" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
 
         <rect x="230" y="30" width="170" height="70" rx="10" fill="#141416" stroke="#26262A"/>
         <text x="315" y="58" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Terraform</text>
-        <text x="315" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">Azure scenarios</text>
+        <text x="315" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_2b">Azure scenarios</text>
 
         <rect x="230" y="120" width="170" height="70" rx="10" fill="#141416" stroke="#26262A"/>
         <text x="315" y="148" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">CI / CD</text>
@@ -236,19 +257,19 @@
 
         <rect x="450" y="30" width="140" height="70" rx="10" fill="#141416" stroke="#26262A"/>
         <text x="520" y="58" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Azure</text>
-        <text x="520" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">test tenants</text>
+        <text x="520" y="78" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_3b">test tenants</text>
 
         <rect x="450" y="120" width="140" height="70" rx="10" fill="#141416" stroke="#26262A"/>
-        <text x="520" y="148" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Ship targets</text>
-        <text x="520" y="168" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">apps · material</text>
+        <text x="520" y="148" text-anchor="middle" fill="#E8B860" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600" data-i18n="lab_svg_4a">Ship targets</text>
+        <text x="520" y="168" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_4b">apps · material</text>
 
         <path d="M590 65 H640" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
         <path d="M590 155 H640" stroke="#7CE0C6" stroke-width="1.5" marker-end="url(#arrow)"/>
 
         <rect x="640" y="40" width="100" height="140" rx="10" fill="#141416" stroke="#26262A"/>
-        <text x="690" y="95" text-anchor="middle" fill="#7CE0C6" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600">Learn</text>
-        <text x="690" y="118" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">fold back</text>
-        <text x="690" y="138" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12">into practice</text>
+        <text x="690" y="95" text-anchor="middle" fill="#7CE0C6" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600" data-i18n="lab_svg_5a">Learn</text>
+        <text x="690" y="118" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_5b">fold back</text>
+        <text x="690" y="138" text-anchor="middle" fill="#9A9AA2" font-family="Segoe UI,sans-serif" font-size="12" data-i18n="lab_svg_5c">into practice</text>
 
         <defs>
           <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
@@ -256,13 +277,13 @@
           </marker>
         </defs>
       </svg>
-      <p class="lab-caption">Architecture sketch — lab → Terraform/Azure + pipelines → own apps &amp; material</p>
+      <p class="lab-caption" data-i18n="lab_caption">Architecture sketch — lab → Terraform/Azure + pipelines → own apps &amp; material</p>
     </div>
   </section>
 
   <section id="studying">
-    <h2>Studying</h2>
-    <p>
+    <h2 data-i18n="studying_title">Studying</h2>
+    <p data-i18n="studying_body">
       My current learning focus follows the roles above directly: deepening
       Azure infrastructure knowledge and expanding into AWS, Infrastructure
       as Code with Terraform, and modern service management with ITIL 4 —
@@ -282,8 +303,8 @@
   </section>
 
   <section id="hobbies">
-    <h2>Hobbies</h2>
-    <p>
+    <h2 data-i18n="hobbies_title">Hobbies</h2>
+    <p data-i18n="hobbies_1">
       Music has been my hobby for 40 years — keyboards, percussion, vocals —
       fitted in between work and family. Studio time, iPad music apps (part
       of the same 5-iPad setup used for hands-on tech testing), standalone
@@ -294,9 +315,9 @@
       publishing into one working whole.
     </p>
     <p>
-      <a href="https://thetemplatedad.com">→ Visit thetemplatedad.com — my artist profile</a>
+      <a href="https://thetemplatedad.com" data-i18n="hobbies_link">→ Visit thetemplatedad.com — my artist profile</a>
     </p>
-    <p>
+    <p data-i18n="hobbies_2">
       Family life is part of this balance too: my 8-year-old daughter is
       often right there with me during studio/audio sessions, and I coach my
       17-year-old through kinetic sports to help keep them active and in
@@ -305,7 +326,7 @@
   </section>
 
   <section id="links">
-    <h2>Links</h2>
+    <h2 data-i18n="links_title">Links</h2>
     <div class="links">
       <a href="https://thetemplatedad.com">thetemplatedad.com</a>
       <a href="https://thetemplatedude.com">thetemplatedude.com</a>
@@ -318,5 +339,220 @@
   </footer>
 
 </div>
+
+<script>
+const I18N = {
+  en: {
+    title: "Aki Villa — About",
+    description: "Aki Villa — Senior IT professional, team lead and hobbyist musician. About, principles, skills, studying focus and hobbies.",
+    eyebrow: "// About",
+    hero_title: "Hi, I'm Aki Villa.",
+    meta_location: "Klaukkala, Uusimaa, Finland",
+    meta_years: "27 years in IT",
+    meta_role: "Team lead · Senior DevOps & AI workflows",
+    portrait_alt: "Portrait of Aki Villa",
+    hero_body: "Senior IT professional and team lead with 27 years of experience building digital services, infrastructure and hands-on production work. I combine technical architecture, automation and creative problem-solving to improve delivery reliability, quality and development speed. Day to day I move between four closely related roles — team lead / system manager, DevOps engineer, multimedia engineer and senior technical consultant — because in practice the work overlaps: reliable systems, clear processes, good tooling and a security-conscious mindset all feed each other.",
+    roles_title: "Roles",
+    role1_title: "Team Lead / System Manager",
+    role1_body: "Leading and mentoring cross-functional teams, prioritization, decision-making and delivery under pressure.",
+    role2_title: "DevOps Engineer",
+    role2_body: "CI/CD pipelines, repeatable deploy patterns, cloud/platform foundations (Azure, Microsoft 365, Google Workspace).",
+    role3_title: "Multimedia Engineer",
+    role3_body: "Content production, technical implementation and publishing workflows — from idea to shipped, maintained product.",
+    role4_title: "Senior Technical Consultant",
+    role4_body: "Bridging technical delivery and business stakeholders — flexible, cross-domain IT advisory across DevOps, platform, and delivery leadership.",
+    principles_title: "Principles & features",
+    p1: "Full-lifecycle ownership: code, configuration, CI/CD pipelines, release governance and L3 support.",
+    p2: "<strong>Extensive migration &amp; tool-change experience</strong> — platforms, frameworks and workflows have shifted many times across 27 years; comfortable leading through change and adapting fast, not just maintaining the status quo.",
+    p3: "Proven legacy modernization: monolith decomposition, dependency decoupling and transition planning without stalling delivery.",
+    p4: "Pragmatic, evidence-based delivery leadership: dependency transparency and predictable execution.",
+    p5: "20+ years leading and mentoring cross-functional engineering teams in English-first, multicultural environments.",
+    p6: "Human-first leadership style: psychological safety, growth-oriented 1:1s, coaching from junior to senior levels.",
+    p7: "AI-assisted development as part of daily work — GitHub Copilot, GitHub Actions and Cloudflare for efficient, modern CI/CD.",
+    p8: "Comfortable bridging legacy and modern environments without letting modernization stall the day-to-day.",
+    p9: "Genuine curiosity about technology in general — quick to explore new tools and stacks, and just as glad to learn from future colleagues as to lead them.",
+    testimonials_title: "What colleagues say",
+    visma_rec: "My latest reference from Visma warmly recommends me for demanding hands-on expert, architecture, and release work, and also for team-lead and manager responsibilities. Fuller references from managers, directors, and technical peers are available on request as a separate document.",
+    testimonials_note: "From peer and team feedback gathered through a structured 1:1 goal-setting and feedback tool used with the team.",
+    q1: "“I particularly appreciate how you believed in my potential and provided me with opportunities when others might not.”",
+    q2: "“Aki can build the team up with conflict management skills, set a positive atmosphere, and support co-workers in their strengths.”",
+    q3: "“A humane approach as a manager, and excellent care for team members.”",
+    q4: "“As a manager, Aki genuinely cares about his team.”",
+    q5: "“I received great support and encouragement from Aki. He often remembered to ask how things were going and whether I needed anything.”",
+    q6: "“You're a good manager — you've supported me well in everything.”",
+    work_title: "Selected work",
+    work1_title: "Invoicing platform: performance & reliability turnaround",
+    work1_body: "Led the cross-functional response to a high-traffic financial invoicing web application suffering degraded performance under load. Coordinated fixes across application code, network/firewall configuration, and server session routing at the same time, rather than treating it as a single-layer fix. Built a shared measurement framework with the team so improvements could be verified with data, and kept management and customers informed throughout the effort. Result: a significant, measurable improvement in end-user experience and application performance.",
+    lab_title: "The Home Lab",
+    lab_intro: "A continuously evolving lab of 10+ machines (10 PCs, 2 MacBooks and 5 iPads) is where I safely break and rebuild infrastructure before it ever touches a production account. I use it as a private sandbox for Terraform and Azure scenarios — provisioning, tearing down and re-running the same patterns until they are boringly reliable — and as the target for deployment pipelines that ship my own apps and published material across several stacks.",
+    lab_c1_title: "Break-and-test sandbox",
+    lab_c1_body: "Terraform-driven Azure experiments, identity and networking trials, and infrastructure changes that are meant to fail fast and recover cleanly — without risking customer environments.",
+    lab_c2_title: "Pipelines to real deliverables",
+    lab_c2_body: "CI/CD paths from the lab into my own applications and content sites — GitHub Actions, Cloudflare and related tooling — so every experiment has a concrete shipping target.",
+    lab_c3_title: "Hardware footprint",
+    lab_c3_1: "10 PCs for mixed Windows / Linux workloads",
+    lab_c3_2: "2 MacBooks for cross-platform checks",
+    lab_c3_3: "5 iPads for mobile and publishing workflows",
+    lab_c4_title: "Tech in active use",
+    lab_c4_1: "Terraform & Azure (IaC scenarios)",
+    lab_c4_2: "GitHub Actions deployment pipelines",
+    lab_c4_3: "Cloudflare, Microsoft 365, Google Workspace",
+    lab_c4_4: "AI-assisted build & review workflows",
+    lab_diagram_aria: "Home lab architecture diagram",
+    lab_svg_title: "Home lab: machines to Terraform/Azure and pipelines to apps",
+    lab_svg_1a: "Home Lab",
+    lab_svg_1b: "10+ machines",
+    lab_svg_1c: "PCs · Mac · iPad",
+    lab_svg_1d: "safe break / rebuild",
+    lab_svg_2b: "Azure scenarios",
+    lab_svg_3b: "test tenants",
+    lab_svg_4a: "Ship targets",
+    lab_svg_4b: "apps · material",
+    lab_svg_5a: "Learn",
+    lab_svg_5b: "fold back",
+    lab_svg_5c: "into practice",
+    lab_caption: "Architecture sketch — lab → Terraform/Azure + pipelines → own apps & material",
+    studying_title: "Studying",
+    studying_body: "My current learning focus follows the roles above directly: deepening Azure infrastructure knowledge and expanding into AWS, Infrastructure as Code with Terraform, and modern service management with ITIL 4 — alongside running Microsoft 365 and Google Workspace environments end to end and getting faster/cleaner CI/CD releases with GitHub Actions and Cloudflare. On the AI tooling side, I use GitHub Copilot Pro and Gemini daily (plus other free-tier assistants), and I'm adding Claude to build more robust workflows and dedicated agents for different roles. It's less about collecting certificates and more about staying hands-on — testing new tooling in the home lab on real, working projects and folding what works back into day-to-day practice. Next challenge I'm setting for myself: building small-scale apps to solve my own everyday problems, likely using multiple AI agents in different roles (architect, coder, reviewer) working together rather than a single assistant doing everything.",
+    hobbies_title: "Hobbies",
+    hobbies_1: "Music has been my hobby for 40 years — keyboards, percussion, vocals — fitted in between work and family. Studio time, iPad music apps (part of the same 5-iPad setup used for hands-on tech testing), standalone grooveboxes and samplers (MPC, SP). In my spare time I build Loopy Pro templates and Koala Sampler SoundSets and share them for free under the TheTemplateDude / TheTemplateDad project — a year-long, self-directed project combining content creation, technical build and publishing into one working whole.",
+    hobbies_link: "→ Visit thetemplatedad.com — my artist profile",
+    hobbies_2: "Family life is part of this balance too: my 8-year-old daughter is often right there with me during studio/audio sessions, and I coach my 17-year-old through kinetic sports to help keep them active and in shape.",
+    links_title: "Links"
+  },
+  fi: {
+    title: "Aki Villa — Esittely",
+    description: "Aki Villa — Senior IT-ammattilainen, tiiminvetäjä ja harrastajamuusikko. Esittely, periaatteet, osaaminen, opiskelu ja harrastukset.",
+    eyebrow: "// Esittely",
+    hero_title: "Hei, olen Aki Villa.",
+    meta_location: "Klaukkala, Uusimaa, Suomi",
+    meta_years: "27 vuotta IT-alalla",
+    meta_role: "Tiiminvetäjä · Senior DevOps & AI-työnkulut",
+    portrait_alt: "Aki Villan muotokuva",
+    hero_body: "Senior IT-ammattilainen ja tiiminvetäjä, jolla on 27 vuoden kokemus digitaalisten palvelujen, infrastruktuurin ja käytännön tuotantotyön rakentamisesta. Yhdistän teknisen arkkitehtuurin, automaation ja luovan ongelmanratkaisun parantaakseni toimitusvarmuutta, laatua ja kehitysnopeutta. Arjessani liikutaan neljän läheisesti liittyvän roolin välillä — tiiminvetäjä / järjestelmävastaava, DevOps-insinööri, multimediainsinööri ja senior technical consultant — koska käytännössä työ limittyy: luotettavat järjestelmät, selkeät prosessit, hyvä työkalutus ja tietoturvatietoinen ote tukevat toisiaan.",
+    roles_title: "Roolit",
+    role1_title: "Tiiminvetäjä / järjestelmävastaava",
+    role1_body: "Monialaisten tiimien johtaminen ja mentorointi, priorisointi, päätöksenteko ja toimitus paineen alla.",
+    role2_title: "DevOps-insinööri",
+    role2_body: "CI/CD-putket, toistettavat julkaisumallit, pilvi- ja alustaperustat (Azure, Microsoft 365, Google Workspace).",
+    role3_title: "Multimediainsinööri",
+    role3_body: "Sisällöntuotanto, tekninen toteutus ja julkaisutyönkulut — ideasta ylläpidettyyn, julkaistuun tuotteeseen.",
+    role4_title: "Senior Technical Consultant",
+    role4_body: "Teknisen toimituksen ja liiketoiminnan välinen silta — joustavaa, monialaista IT-neuvontaa DevOpsissa, alustoissa ja toimitusjohtamisessa.",
+    principles_title: "Periaatteet ja vahvuudet",
+    p1: "Koko elinkaaren omistajuus: koodi, konfiguraatio, CI/CD-putket, julkaisuhallinta ja L3-tuki.",
+    p2: "<strong>Laaja migraatio- ja työkaluvaihtokokemus</strong> — alustat, viitekehykset ja työnkulut ovat vaihtuneet monesti 27 vuoden aikana; muutosjohtaminen ja nopea sopeutuminen onnistuvat, ei vain status quon ylläpito.",
+    p3: "Näyttö legacy-modernisoinnista: monoliitin hajotus, riippuvuuksien irrottaminen ja siirtymäsuunnittelu ilman että toimitus pysähtyy.",
+    p4: "Pragmaattinen, näyttöön perustuva toimitusjohtaminen: riippuvuuksien läpinäkyvyys ja ennustettava toteutus.",
+    p5: "Yli 20 vuotta monialaisten engineering-tiimien johtamista ja mentorointia englanninkielisissä, monikulttuurisissa ympäristöissä.",
+    p6: "Ihmisläheinen johtamistyyli: psykologinen turvallisuus, kasvua tukevat 1:1-keskustelut, coaching juniorista senioriin.",
+    p7: "Tekoälyavusteinen kehitys osana arkea — GitHub Copilot, GitHub Actions ja Cloudflare tehokkaaseen, moderniin CI/CD:hen.",
+    p8: "Legacy- ja modernien ympäristöjen siltaaminen ilman, että modernisointi pysäyttää päivittäisen työn.",
+    p9: "Aito uteliaisuus teknologiaa kohtaan — uudet työkalut ja pinot kiinnostavat, ja opin mielelläni tulevilta kollegoilta yhtä lailla kuin johdan heitä.",
+    testimonials_title: "Mitä kollegat sanovat",
+    visma_rec: "Visman tuorein suositus koskee vaativaa käytännön asiantuntija-, arkkitehtuuri- ja julkaisutyötä sekä tiiminvetäjä- ja esihenkilövastuita. Tarkemmat suositukset esimiehiltä, johtajilta ja teknisiltä kollegoilta saatavilla pyydettäessä erillisenä dokumenttina.",
+    testimonials_note: "Vertais- ja tiimipalaute kerätty strukturoidulla 1:1-tavoite- ja palautetyökalulla tiimin kanssa.",
+    q1: "“Arvostan erityisesti sitä, että uskoit potentiaaliini ja annoit minulle mahdollisuuksia, joita muut eivät ehkä olisi tarjonneet.”",
+    q2: "“Aki osaa rakentaa tiimiä konfliktinhallinnalla, luoda myönteisen ilmapiirin ja tukea työkavereita heidän vahvuuksissaan.”",
+    q3: "“Esimiehenä inhimillinen ote ja tiimin jäsenistä erinomaisesti huolehtiminen.”",
+    q4: "“Esihenkilönä Aki aidosti välittää alaisistaan.”",
+    q5: "“Sain hyvin tukea ja kannustusta Akilta. Hän muisti usein kysyä miten menee ja tarvitsenko jotain.”",
+    q6: "“Olet hyvä esihenkilö, olet tukenut hyvin kaikissa asioissa.”",
+    work_title: "Valittuja töitä",
+    work1_title: "Laskutusalusta: suorituskyvyn ja luotettavuuden käänne",
+    work1_body: "Johdin monialaista vastetta korkealiikenteiseen taloudelliseen laskutusweb-sovellukseen, jonka suorituskyky heikkeni kuormassa. Korjaukset sovittiin yhtä aikaa sovelluskoodiin, verkko-/palomuurikonfiguraatioon ja palvelimen istuntoreititykseen — ei yksitasoisena korjauksena. Rakensin tiimin kanssa yhteisen mittarikehikon, jotta parannukset voitiin todentaa datalla, ja pidin johdon sekä asiakkaat ajan tasalla. Tulos: merkittävä, mitattava parannus loppukäyttäjäkokemukseen ja sovelluksen suorituskykyyn.",
+    lab_title: "Kotilabra",
+    lab_intro: "Jatkuvasti kehittyvä yli 10 koneen labra (10 PC:tä, 2 MacBookia ja 5 iPadia) on paikka, jossa rikon ja rakennan infrastruktuuria turvallisesti ennen kuin se koskee tuotantotiliä. Käytän sitä yksityisenä sandboxina Terraform- ja Azure-skenaarioille — provisionointi, purku ja samojen mallien uudelleenajo kunnes ne ovat tylsän luotettavia — sekä kohteena deployment-putkille, joilla julkaisen omia sovelluksiani ja materiaalia useilla teknologioilla.",
+    lab_c1_title: "Break-and-test -sandbox",
+    lab_c1_body: "Terraform-vetoisia Azure-kokeiluja, identiteetti- ja verkkokokeita sekä infrastruktuurimuutoksia, joiden on tarkoitus epäonnistua nopeasti ja toipua siististi — ilman asiakasympäristöjen riskiä.",
+    lab_c2_title: "Putket oikeisiin toimituksiin",
+    lab_c2_body: "CI/CD-polut labrasta omiin sovelluksiin ja sisältösivustoihin — GitHub Actions, Cloudflare ja niihin liittyvät työkalut — jotta jokaisella kokeilulla on konkreettinen julkaisukohde.",
+    lab_c3_title: "Laitteisto",
+    lab_c3_1: "10 PC:tä Windows- / Linux-työkuormille",
+    lab_c3_2: "2 MacBookia monialustatarkistuksiin",
+    lab_c3_3: "5 iPadia mobiili- ja julkaisutyönkulkuihin",
+    lab_c4_title: "Käytössä olevat teknologiat",
+    lab_c4_1: "Terraform & Azure (IaC-skenaariot)",
+    lab_c4_2: "GitHub Actions -deployment-putket",
+    lab_c4_3: "Cloudflare, Microsoft 365, Google Workspace",
+    lab_c4_4: "Tekoälyavusteiset build- ja review-työnkulut",
+    lab_diagram_aria: "Kotilabran arkkitehtuurikaavio",
+    lab_svg_title: "Kotilabra: koneet → Terraform/Azure ja putket sovelluksiin",
+    lab_svg_1a: "Kotilabra",
+    lab_svg_1b: "Yli 10 konetta",
+    lab_svg_1c: "PC · Mac · iPad",
+    lab_svg_1d: "turvallinen rikkominen",
+    lab_svg_2b: "Azure-skenaariot",
+    lab_svg_3b: "testitenantit",
+    lab_svg_4a: "Julkaisukohteet",
+    lab_svg_4b: "sovellukset · materiaali",
+    lab_svg_5a: "Oppiminen",
+    lab_svg_5b: "takaisin",
+    lab_svg_5c: "käytäntöön",
+    lab_caption: "Arkkitehtuuriluonnos — labra → Terraform/Azure + putket → omat sovellukset & materiaali",
+    studying_title: "Opiskelu",
+    studying_body: "Nykyinen oppimisfokus seuraa suoraan yllä olevia rooleja: syvennän Azure-infrastruktuurin osaamista ja laajennan AWS:ään, Infrastructure as Codeen Terraformilla sekä moderniin palvelunhallintaan ITIL 4:llä — samalla kun pyöritän Microsoft 365- ja Google Workspace -ympäristöjä päästä päähän ja teen CI/CD-julkaisuista nopeampia ja siistimpiä GitHub Actionsilla ja Cloudflarella. Tekoälytyökaluissa käytän päivittäin GitHub Copilot Prota ja Geminiä (sekä muita ilmaisia apureita), ja lisään Claudea rakentaakseni vakaampia työnkulkuja ja eri rooleille omia agenteja. Kyse ei ole sertifikaattien keräämisestä vaan käytännön otteesta — testaan uusia työkaluja kotilabrassa oikeissa projekteissa ja siirrän toimivan osaksi arkea. Seuraava haasteeni: pienten sovellusten rakentaminen omiin arjen ongelmiin, todennäköisesti useilla tekoälyagenteilla eri rooleissa (arkkitehti, koodari, reviewer) yhdessä — ei yhdellä apurilla joka tekee kaiken.",
+    hobbies_title: "Harrastukset",
+    hobbies_1: "Musiikki on ollut harrastukseni 40 vuotta — koskettimet, lyömäsoittimet, laulu — työn ja perheen väliin. Studiotaikaa, iPad-musiikkisovelluksia (osa samaa 5 iPadin setuppia teknisessä testauksessa), erillisiä grooveboxeja ja samplereita (MPC, SP). Vapaa-ajalla teen Loopy Pro -templateja ja Koala Sampler -SoundSetejä ja jaan niitä ilmaiseksi TheTemplateDude / TheTemplateDad -projektissa — vuoden mittainen, itseohjautuva projekti, jossa sisällöntuotanto, tekninen rakentaminen ja julkaisu muodostavat yhden kokonaisuuden.",
+    hobbies_link: "→ Käy thetemplatedad.com — artistiprofiilini",
+    hobbies_2: "Perhe-elämä kuuluu tähän tasapainoon: 8-vuotias tyttäreni on usein mukana studio-/äänisessioissa, ja valmennan 17-vuotiasta kineettisessä urheilussa, jotta hän pysyy aktiivisena ja kunnossa.",
+    links_title: "Linkit"
+  }
+};
+
+function applyLang(lang) {
+  const dict = I18N[lang] || I18N.en;
+  document.documentElement.lang = lang;
+  document.title = dict.title;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute("content", dict.description);
+
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] != null) el.textContent = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-html");
+    if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-alt");
+    if (dict[key] != null) el.setAttribute("alt", dict[key]);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-aria");
+    if (dict[key] != null) el.setAttribute("aria-label", dict[key]);
+  });
+
+  document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+    btn.setAttribute("aria-pressed", btn.getAttribute("data-set-lang") === lang ? "true" : "false");
+  });
+
+  try { localStorage.setItem("portfolio-lang", lang); } catch (_) {}
+  if (history.replaceState) {
+    const url = new URL(location.href);
+    url.searchParams.set("lang", lang);
+    history.replaceState(null, "", url);
+  }
+}
+
+function detectLang() {
+  const params = new URLSearchParams(location.search);
+  const fromUrl = params.get("lang");
+  if (fromUrl === "fi" || fromUrl === "en") return fromUrl;
+  try {
+    const saved = localStorage.getItem("portfolio-lang");
+    if (saved === "fi" || saved === "en") return saved;
+  } catch (_) {}
+  const nav = (navigator.language || "").toLowerCase();
+  return nav.startsWith("fi") ? "fi" : "en";
+}
+
+document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+  btn.addEventListener("click", () => applyLang(btn.getAttribute("data-set-lang")));
+});
+
+applyLang(detectLang());
+</script>
 </body>
 </html>
