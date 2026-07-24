@@ -76,6 +76,17 @@
   .lab-diagram svg{display:block; width:100%; max-width:760px; height:auto; margin:0 auto;}
   .lab-caption{margin:10px 0 0; font-size:12px; color:var(--text-dim); font-family:'JetBrains Mono',monospace; text-align:center;}
 
+  .articles{list-style:none; padding:0; margin:16px 0 0; display:grid; gap:10px;}
+  .articles a{
+    display:block; background:var(--surface); border:1px solid var(--border);
+    border-radius:10px; padding:14px 16px; text-decoration:none; color:var(--text);
+  }
+  .articles a:hover{border-color:var(--mint);}
+  .articles .article-meta{
+    display:block; margin-top:4px; font-size:12px; color:var(--text-dim);
+    font-family:'JetBrains Mono',monospace;
+  }
+
   footer{padding:32px 0 64px; color:var(--text-dim); font-size:13px;}
 </style>
 </head>
@@ -325,6 +336,55 @@
     </p>
   </section>
 
+  <section id="writing">
+    <h2 data-i18n="writing_title">Writing</h2>
+    <p data-i18n="writing_intro">
+      Selected LinkedIn articles on AI, DevOps and team leadership.
+      Cover-image collage coming later.
+    </p>
+    <ul class="articles">
+      <li>
+        <a href="https://www.linkedin.com/pulse/302-miljoonaa-tokenia-koodausta-vai-kokonaisen-kirjaston-aki-villa-bighf/">
+          <span data-i18n="a1_title">302 million tokens — coding, or a whole library?</span>
+          <span class="article-meta" data-i18n="a1_meta">LinkedIn · AI / tooling</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/pulse/clarity-new-premium-content-strategy-aki-villa-1mglf/">
+          <span data-i18n="a2_title">Clarity: the new premium content strategy</span>
+          <span class="article-meta" data-i18n="a2_meta">LinkedIn · content strategy</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/pulse/agile-squad-changing-im-surprised-how-much-aki-villa-ozaff/">
+          <span data-i18n="a3_title">Agile squad changing — I'm surprised how much</span>
+          <span class="article-meta" data-i18n="a3_meta">LinkedIn · teams / agile</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/pulse/ain-sokeat-pisteet-n%C3%A4kyviksi-5-esimerkki%C3%A4-omasta-devops-aki-villa-prmjf/">
+          <span data-i18n="a4_title">Making AI's blind spots visible — 5 examples from my own DevOps</span>
+          <span class="article-meta" data-i18n="a4_meta">LinkedIn · AI / DevOps</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/pulse/viisi-esimerkki%C3%A4-ain-sokeista-pisteist%C3%A4-aki-villa-umayf/">
+          <span data-i18n="a5_title">Five examples of AI's blind spots</span>
+          <span class="article-meta" data-i18n="a5_meta">LinkedIn · AI / DevOps</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/pulse/orchestrating-team-why-junior-less-office-trap-aki-villa-4t9uf/">
+          <span data-i18n="a6_title">Orchestrating a team: why “junior” is less of an office trap</span>
+          <span class="article-meta" data-i18n="a6_meta">LinkedIn · leadership</span>
+        </a>
+      </li>
+    </ul>
+    <p style="margin-top:16px;">
+      <a href="https://www.linkedin.com/in/aki-villa-7ab60629/recent-activity/articles/" data-i18n="writing_all">→ All articles on LinkedIn</a>
+    </p>
+  </section>
+
   <section id="links">
     <h2 data-i18n="links_title">Links</h2>
     <div class="links">
@@ -418,6 +478,21 @@ const I18N = {
     hobbies_1: "Music has been my hobby for 40 years — keyboards, percussion, vocals — fitted in between work and family. Studio time, iPad music apps (part of the same 5-iPad setup used for hands-on tech testing), standalone grooveboxes and samplers (MPC, SP). In my spare time I build Loopy Pro templates and Koala Sampler SoundSets and share them for free under the TheTemplateDude / TheTemplateDad project — a year-long, self-directed project combining content creation, technical build and publishing into one working whole.",
     hobbies_link: "→ Visit thetemplatedad.com — my artist profile",
     hobbies_2: "Family life is part of this balance too: my 8-year-old daughter is often right there with me during studio/audio sessions, and I coach my 17-year-old through kinetic sports to help keep them active and in shape.",
+    writing_title: "Writing",
+    writing_intro: "Selected LinkedIn articles on AI, DevOps and team leadership. Cover-image collage coming later.",
+    a1_title: "302 million tokens — coding, or a whole library?",
+    a1_meta: "LinkedIn · AI / tooling",
+    a2_title: "Clarity: the new premium content strategy",
+    a2_meta: "LinkedIn · content strategy",
+    a3_title: "Agile squad changing — I'm surprised how much",
+    a3_meta: "LinkedIn · teams / agile",
+    a4_title: "Making AI's blind spots visible — 5 examples from my own DevOps",
+    a4_meta: "LinkedIn · AI / DevOps",
+    a5_title: "Five examples of AI's blind spots",
+    a5_meta: "LinkedIn · AI / DevOps",
+    a6_title: "Orchestrating a team: why “junior” is less of an office trap",
+    a6_meta: "LinkedIn · leadership",
+    writing_all: "→ All articles on LinkedIn",
     links_title: "Links"
   },
   fi: {
@@ -496,6 +571,21 @@ const I18N = {
     hobbies_1: "Musiikki on ollut harrastukseni 40 vuotta — koskettimet, lyömäsoittimet, laulu — työn ja perheen väliin. Studiotaikaa, iPad-musiikkisovelluksia (osa samaa 5 iPadin setuppia teknisessä testauksessa), erillisiä grooveboxeja ja samplereita (MPC, SP). Vapaa-ajalla teen Loopy Pro -templateja ja Koala Sampler -SoundSetejä ja jaan niitä ilmaiseksi TheTemplateDude / TheTemplateDad -projektissa — vuoden mittainen, itseohjautuva projekti, jossa sisällöntuotanto, tekninen rakentaminen ja julkaisu muodostavat yhden kokonaisuuden.",
     hobbies_link: "→ Käy thetemplatedad.com — artistiprofiilini",
     hobbies_2: "Perhe-elämä kuuluu tähän tasapainoon: 8-vuotias tyttäreni on usein mukana studio-/äänisessioissa, ja valmennan 17-vuotiasta kineettisessä urheilussa, jotta hän pysyy aktiivisena ja kunnossa.",
+    writing_title: "Kirjoitukset",
+    writing_intro: "Valikoituja LinkedIn-artikkeleita tekoälystä, DevOpsista ja tiiminjohtamisesta. Kansikuvakollaasi tulossa myöhemmin.",
+    a1_title: "302 miljoonaa tokenia — koodausta vai kokonaisen kirjaston?",
+    a1_meta: "LinkedIn · tekoäly / työkalut",
+    a2_title: "Clarity: the new premium content strategy",
+    a2_meta: "LinkedIn · sisältöstrategia",
+    a3_title: "Agile squad changing — I'm surprised how much",
+    a3_meta: "LinkedIn · tiimit / agile",
+    a4_title: "AI:n sokeat pisteet näkyviksi — 5 esimerkkiä omasta DevOpsista",
+    a4_meta: "LinkedIn · tekoäly / DevOps",
+    a5_title: "Viisi esimerkkiä AI:n sokeista pisteistä",
+    a5_meta: "LinkedIn · tekoäly / DevOps",
+    a6_title: "Orchestrating a team: why “junior” is less of an office trap",
+    a6_meta: "LinkedIn · johtaminen",
+    writing_all: "→ Kaikki artikkelit LinkedInissä",
     links_title: "Linkit"
   }
 };
